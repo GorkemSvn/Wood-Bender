@@ -1,0 +1,5 @@
+-add a costum cylinder
+-add a chisel
+-start spining cylinder onstart event
+-detect collisions
+-reshape cylinder
