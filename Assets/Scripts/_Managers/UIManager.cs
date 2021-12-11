@@ -39,6 +39,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+
+        GreetGame();
+    }
 
     private void GreetGame()
     {

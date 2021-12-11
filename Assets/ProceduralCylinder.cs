@@ -78,6 +78,7 @@ public class ProceduralCylinder : MonoBehaviour
 
     public void Dent(Vector3 point)
     {
+        point = transform.InverseTransformPoint(point);
         for (int i = 0; i < map.Count-1; i++)
         {
             if(map[i].height<point.y && map[i + 1].height > point.y)
@@ -119,7 +120,7 @@ public class ProceduralCylinder : MonoBehaviour
         points.AddRange(Disc(dt, map[0].radius, map[0].height));
         for (int u = 0; u < dt; u++)
         {
-            uvs.Add(new Vector2(map[0].radius, 0.5f));
+            uvs.Add(new Vector2(map[0].radius, 0f));
         }
 
         for (int i = 1; i < map.Count; i++)
@@ -146,7 +147,7 @@ public class ProceduralCylinder : MonoBehaviour
                 float x = ((float)(u)) / ((float)(dt));
                 float y = ((float)(i-1)) / ((float)(map.Count-1));
                // uvs.Add(new Vector2(x, y));
-                uvs.Add(new Vector2(map[i].radius, 0.5f));
+                uvs.Add(new Vector2(map[i].radius, y));
             }
         }
 

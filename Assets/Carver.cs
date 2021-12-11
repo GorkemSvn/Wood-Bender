@@ -38,6 +38,14 @@ public class Carver : MonoBehaviour
         //overwrite colliding points as outline
         */
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        ContactPoint[] cps = new ContactPoint[collision.contactCount];
+        collision.GetContacts(cps);
+        foreach (ContactPoint cp in cps)
+            cyliner.Dent(cp.point);
+
+    }
 
     private void OnCollisionStay(Collision collision)
     {
